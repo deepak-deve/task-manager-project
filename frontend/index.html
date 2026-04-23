@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<style>
+body {
+    font-family: Arial;
+    background: lightblue;
+    padding: 10px;
+}
+
+h2 {
+    text-align: left;
+}
+
+input {
+    
+    padding: 8px;
+    margin: 5px;
+}
+
+button {
+    padding: 6px 10px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+#taskList {
+    margin-top: 10px;
+}
+
+li {
+    background: lightblue;
+    padding: 15px;
+    margin-bottom: 10px;
+	max-height:100%;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.section {
+    background: lightgrey;
+    padding: 0px;
+    padding: 7px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+	border-radius:20px;
+}
+
+
+</style>
+<head>
+    <title>Task App</title>
+</head>
+<body>
+    <h1>Task Manager</h1>
+	<div class="section">
+	<h2>Register</h2>
+    <input type="text" id="reg_username" placeholder="Username">
+    <input type="password" id="re_password" placeholder="Password">
+    <button onclick="register()">Register</button>
+	</div>
+	
+	<div class="section">
+	<h2>Login</h2>
+	<input type="text" id="username" placeholder="username">
+	<input type="password" id="password" placeholder="password">
+	<button onclick="login()">Login</button>
+	</div>
+	
+	<p id="message"></p>
+	<br><br>
+	
+	<div class="section">
+	<h2>New Task</h2>
+	<input type="text" id="title" placeholder="Enter Task">
+	<input type="text" id="status" placeholder="Enter Status">
+	<button onclick="addTask()">Add Task</button>
+	</div>
+	<br><br>
+	
+	<button onclick="loadTasks()">Load Tasks</button>
+	<div class="section">
+	<h2>Tasks</h2>
+	<ul id="taskList"></ul>
+	</div>
+	</div>
+	<script src="script.js"></script>
+
+</body>
+</html>
