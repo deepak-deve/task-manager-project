@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Add Task</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+    <div class="navbar">
+
+        <div class="nav-left">
+    
+            <h2>📋 Task Manager</h2>
+    
+        </div>
+    
+        <div class="nav-right">
+    
+            <span>
+    
+                Welcome, {{ session["user_name"] }}
+    
+            </span>
+    
+            <a href="/logout">
+    
+                <button>
+    
+                    Logout
+    
+                </button>
+    
+            </a>
+    
+        </div>
+    
+    </div>
+
+    <div class="page">
+        <div class="task-form-card">
+
+        <h2>Add New Task</h2>
+        
+        <form action="/update-task/{{ task.id }}" method="POST">
+
+            <label>Title</label>
+            <input
+            type="text"
+            name="title"
+            value="{{ task.title }}"
+            required
+        >
+
+            <label>Description</label>
+
+            <textarea
+                name="description"
+                rows="5"
+                
+            >{{ task.description }}</textarea>
+
+            <label>Priority</label>
+
+            <select name="priority" required>
+
+                
+
+                <option>High</option>
+
+                <option>Medium</option>
+
+                <option>Low</option>
+
+            </select>
+
+            <label>Status</label>
+
+            <select name="status" required>
+
+                <option value="">Select Status</option>
+                <option {% if task.status=="Pending" %}selected{% endif %}>Pending</option>
+
+                <option {% if task.status=="In Progress" %}selected{% endif %}>In Progress</option>
+                
+                <option {% if task.status=="Completed" %}selected{% endif %}>Completed</option>
+
+            </select>
+
+            <label>Due Date</label>
+
+            <input
+                type="date"
+                name="due_date"
+                value="{{ task.due_date }}"
+                required
+            >
+
+            <br><br>
+
+            <button type="submit">
+
+                Save Task
+
+            </button>
+
+            <a href="/tasks">
+
+                <button type="button">
+
+                    Cancel
+
+                </button>
+
+            </a>
+
+        </form>
+
+    </div>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>My Tasks</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="navbar">
+
+    <div class="nav-left">
+
+        <h2>📋 Task Manager</h2>
+
+    </div>
+
+    <div class="nav-right">
+
+        <span>
+
+            Welcome, {{ session["user_name"] }}
+
+        </span>
+
+        <a href="/logout">
+
+            <button>
+
+                Logout
+
+            </button>
+
+        </a>
+
+    </div>
+
+</div>
+
+<div class="page">
+    <div class="top-bar">
+
+        <h2>My Tasks</h2>
+    
+        <div class="top-buttons">
+    
+            <input
+                type="text"
+                id="searchTask"
+                placeholder="Search task..."
+            >
+    
+            <a href="/add-task">
+    
+                <button class="add-btn">
+    
+                    + Add Task
+    
+                </button>
+    
+            </a>
+    
+            <a href="/dashboard">
+    
+                <button>
+    
+                    Dashboard
+    
+                </button>
+    
+            </a>
+    
+            <a href="/logout">
+    
+                <button>
+    
+                    Logout
+    
+                </button>
+    
+            </a>
+    
+        </div>
+    
+    </div>
+
+    </div>
+
+    <table class="task-table" id="taskTable">
+
+        <thead>
+
+            <tr>
+
+                <th>Title</th>
+
+                <th>Priority</th>
+
+                <th>Status</th>
+
+                <th>Due Date</th>
+
+                <th>Action</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+        {% if tasks %}
+
+            {% for task in tasks %}
+
+            <tr>
+
+                <td>{{ task.title }}</td>
+
+                <td>
+
+                    <span class="priority {{ task.priority|lower|replace(' ','-') }}">
+                
+                        {{ task.priority }}
+                
+                    </span>
+                
+                </td>
+
+                <td>
+
+                    <span class="status {{ task.status|lower|replace(' ','-') }}">
+                
+                        {{ task.status }}
+                
+                    </span>
+                
+                </td>
+
+                <td>{{ task.due_date.strftime('%d %b %Y') }}</td>
+
+                <td>
+                    <a class="edit-btn"
+                    href="/edit-task/{{ task.id }}">
+                 
+                     Edit
+                 
+                 </a>
+                 
+                 <a class="delete-btn"
+                    href="/delete-task/{{ task.id }}"
+                    onclick="return confirm('Delete this task?')">
+                 
+                     Delete
+                 
+                 </a>
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+        {% else %}
+
+            <tr>
+
+                <td colspan="5">
+
+                    No Tasks Found
+
+                </td>
+
+            </tr>
+
+        {% endif %}
+
+        </tbody>
+
+    </table>
+
+</div>
+
+<script>
+
+    const searchInput = document.getElementById("searchTask");
+    
+    searchInput.addEventListener("keyup", function () {
+    
+        let filter = this.value.toLowerCase();
+    
+        let rows = document.querySelectorAll("#taskTable tbody tr");
+    
+        rows.forEach(function (row) {
+    
+            let text = row.textContent.toLowerCase();
+    
+            if (text.indexOf(filter) > -1) {
+    
+                row.style.display = "";
+    
+            } else {
+    
+                row.style.display = "none";
+    
+            }
+    
+        });
+    
+    });
+    
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,809 @@
+/* =====================================
+   GLOBAL
+===================================== */
+
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+body{
+
+    background:whitesmoke;
+
+    font-family:Arial,sans-serif;
+
+    color:#333;
+
+}
+
+a{
+
+    text-decoration:none;
+
+}
+
+h1,h2,h3{
+
+    margin:0;
+
+}
+
+/* =====================================
+   NAVBAR
+===================================== */
+
+.navbar{
+
+    background:midnightblue;
+
+    color:white;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:15px 30px;
+
+}
+
+.nav-left h2{
+
+    font-size:26px;
+
+}
+
+.nav-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+.nav-right span{
+
+    font-weight:bold;
+
+    font-size:16px;
+
+}
+
+/* =====================================
+   COMMON BUTTONS
+===================================== */
+
+button{
+
+    padding:12px 20px;
+
+    border:none;
+
+    border-radius:6px;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    color:white;
+
+    background:mediumslateblue;
+
+    transition:.2s;
+
+}
+
+button:hover{
+
+    opacity:.9;
+
+}
+
+/* =====================================
+   COMMON INPUTS
+===================================== */
+
+input,
+select,
+textarea{
+
+    width:100%;
+
+    padding:12px;
+
+    margin-top:6px;
+
+    margin-bottom:18px;
+
+    border:1px solid lightgray;
+
+    border-radius:6px;
+
+    font-size:15px;
+
+    font-family:Arial,sans-serif;
+
+}
+
+textarea{
+
+    resize:vertical;
+
+    min-height:120px;
+
+}
+
+label{
+
+    font-weight:bold;
+
+}
+
+/* =====================================
+   LOGIN / REGISTER
+===================================== */
+
+.container{
+
+    width:100%;
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.auth-card{
+
+    width:430px;
+
+    background:white;
+
+    padding:35px;
+
+    border-radius:12px;
+
+    box-shadow:0 4px 15px lightgray;
+
+}
+
+.auth-card h1{
+
+    color:purple;
+
+    text-align:center;
+
+    margin-bottom:10px;
+
+}
+
+.auth-card h3{
+
+    color:gray;
+
+    text-align:center;
+
+    margin-bottom:25px;
+
+}
+
+.auth-card button{
+
+    width:100%;
+
+}
+
+.auth-card p{
+
+    margin-top:20px;
+
+    text-align:center;
+
+}
+
+.auth-card a{
+
+    color:purple;
+
+    font-weight:bold;
+
+}
+
+/* =====================================
+   PAGE LAYOUT
+===================================== */
+
+.page{
+
+    width:90%;
+
+    max-width:1200px;
+
+    margin:35px auto;
+
+}
+
+/* =====================================
+   DASHBOARD
+===================================== */
+
+.dashboard-header{
+
+    margin-bottom:30px;
+
+}
+
+.dashboard-header p{
+
+    color:gray;
+
+    margin-top:8px;
+
+}
+
+.dashboard-cards{
+
+    display:flex;
+
+    gap:25px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:40px;
+
+}
+
+.dashboard-card{
+
+    flex:1;
+
+    min-width:230px;
+
+    background:white;
+
+    border-radius:12px;
+
+    padding:30px;
+
+    text-align:center;
+
+    box-shadow:0 4px 12px lightgray;
+
+}
+
+.dashboard-card h2{
+
+    margin-bottom:15px;
+
+}
+
+.dashboard-card h1{
+
+    font-size:42px;
+
+}
+
+.total-card{
+
+    border-top:6px solid royalblue;
+
+}
+
+.pending-card{
+
+    border-top:6px solid darkorange;
+
+}
+
+.completed-card{
+
+    border-top:6px solid green;
+
+}
+
+/* =====================================
+   TASK FORM
+===================================== */
+
+.task-form-card{
+
+    width:700px;
+
+    max-width:100%;
+
+    margin:30px auto;
+
+    background:white;
+
+    padding:35px;
+
+    border-radius:12px;
+
+    box-shadow:0 4px 15px lightgray;
+
+}
+
+.task-form-card h2{
+
+    text-align:center;
+
+    margin-bottom:25px;
+
+}
+
+.task-form-card button{
+
+    width:100%;
+
+}
+
+/* =====================================
+   TOP BAR
+===================================== */
+
+.top-bar{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:25px;
+
+    flex-wrap:wrap;
+
+    gap:15px;
+
+}
+
+.top-buttons{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+
+}
+
+#searchTask{
+
+    width:220px;
+
+}
+
+.add-btn{
+
+    background:green;
+
+}
+
+/* =====================================
+   TABLE
+===================================== */
+
+.task-table{
+
+    width:100%;
+
+    background:white;
+
+    border-collapse:collapse;
+
+    border-radius:10px;
+
+    overflow:hidden;
+
+    box-shadow:0 4px 10px lightgray;
+
+}
+
+.task-table th{
+
+    background:midnightblue;
+
+    color:white;
+
+    padding:14px;
+
+}
+
+.task-table td{
+
+    padding:14px;
+
+    text-align:center;
+
+    border-bottom:1px solid whitesmoke;
+
+}
+
+.task-table tr:hover{
+
+    background:whitesmoke;
+
+}
+
+/* =====================================
+   SEARCH AREA
+===================================== */
+
+.top-buttons{
+
+    display:flex;
+
+    gap:10px;
+
+    align-items:center;
+
+}
+
+#searchTask{
+
+    width:230px;
+
+    margin:0;
+
+}
+
+
+/* =====================================
+   ADD TASK / EDIT TASK FORM
+===================================== */
+
+.task-form-card{
+
+    width:600px;
+
+    margin:40px auto;
+
+    background:white;
+
+    padding:35px;
+
+    border-radius:12px;
+
+    box-shadow:0 4px 15px lightgray;
+
+}
+
+.task-form-card h2{
+
+    text-align:center;
+
+    margin-bottom:25px;
+
+}
+
+.task-form-card button{
+
+    width:100%;
+
+}
+
+
+/* =====================================
+   DASHBOARD
+===================================== */
+
+.dashboard-cards{
+
+    display:flex;
+
+    gap:25px;
+
+    margin-top:40px;
+
+    flex-wrap:wrap;
+
+}
+
+
+.dashboard-card{
+
+    width:250px;
+
+    height:150px;
+
+    background:white;
+
+    border-radius:12px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    box-shadow:0 4px 15px lightgray;
+
+}
+
+
+.dashboard-card h1{
+
+    font-size:40px;
+
+    margin-top:10px;
+
+}
+
+
+.total-card{
+
+    border-top:6px solid royalblue;
+
+}
+
+
+.pending-card{
+
+    border-top:6px solid darkorange;
+
+}
+
+
+.completed-card{
+
+    border-top:6px solid green;
+
+}
+
+
+/* =====================================
+   TASK TABLE
+===================================== */
+
+
+.task-table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    background:white;
+
+    margin-top:30px;
+
+}
+
+
+.task-table th{
+
+    background:purple;
+
+    color:white;
+
+    padding:14px;
+
+}
+
+
+.task-table td{
+
+    padding:14px;
+
+    text-align:center;
+
+    border-bottom:1px solid lightgray;
+
+}
+
+
+.task-table tr:hover{
+
+    background:whitesmoke;
+
+}
+
+
+/* =====================================
+   PRIORITY BADGES
+===================================== */
+
+
+.priority{
+
+    padding:6px 12px;
+
+    border-radius:20px;
+
+    color:white;
+
+    font-weight:bold;
+
+}
+
+
+.priority.high{
+
+    background:red;
+
+}
+
+
+.priority.medium{
+
+    background:royalblue;
+
+}
+
+
+.priority.low{
+
+    background:gray;
+
+}
+
+
+/* =====================================
+   STATUS BADGES
+===================================== */
+
+
+.status{
+
+    padding:6px 12px;
+
+    border-radius:20px;
+
+    color:white;
+
+    font-weight:bold;
+
+}
+
+
+.status.pending{
+
+    background:darkorange;
+
+}
+
+
+.status.in-progress{
+
+    background:steelblue;
+
+}
+
+
+.status.completed{
+
+    background:green;
+
+}
+
+
+/* =====================================
+   ACTION BUTTONS
+===================================== */
+
+
+.edit-btn{
+
+    background:royalblue;
+
+    color:white;
+
+    padding:8px 14px;
+
+    border-radius:5px;
+
+    display:inline-block;
+
+}
+
+
+.delete-btn{
+
+    background:crimson;
+
+    color:white;
+
+    padding:8px 14px;
+
+    border-radius:5px;
+
+    display:inline-block;
+
+}
+
+
+.edit-btn:hover,
+.delete-btn:hover{
+
+    opacity:.85;
+
+}
+
+
+/* =====================================
+   FLASH MESSAGE
+===================================== */
+
+
+.message{
+
+    background:lightyellow;
+
+    color:darkred;
+
+    padding:12px;
+
+    border-radius:6px;
+
+    text-align:center;
+
+    margin-bottom:20px;
+
+}
+
+
+/* =====================================
+   RESPONSIVE
+===================================== */
+
+
+@media(max-width:700px){
+
+
+    .navbar{
+
+        flex-direction:column;
+
+        gap:15px;
+
+    }
+
+
+    .top-buttons{
+
+        flex-direction:column;
+
+        width:100%;
+
+    }
+
+
+    .dashboard-card{
+
+        width:100%;
+
+    }
+
+
+    .task-form-card,
+    .auth-card{
+
+        width:90%;
+
+    }
+
+
+    .task-table{
+
+        font-size:13px;
+
+    }
+
+
+}

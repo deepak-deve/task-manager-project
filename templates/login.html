@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Login</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="auth-card">
+
+            <h1>Task Manager</h1>
+
+            <h3>Login</h3>
+
+            <!-- Flash Messages -->
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+
+                <div class="message">
+
+                    {{ messages[0] }}
+
+                </div>
+
+            {% endif %}
+            {% endwith %}
+
+            <form action="/login" method="POST">
+
+                <label>Email</label>
+
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Enter your email"
+                    required
+                >
+
+                <label>Password</label>
+
+                <input
+                    type="password"
+                    name="password"
+                    placeholder="Enter password"
+                    required
+                >
+
+                <button type="submit">
+
+                    Login
+
+                </button>
+
+            </form>
+
+            <p>
+
+                Don't have an account?
+
+                <a href="/">
+
+                    Register
+
+                </a>
+
+            </p>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

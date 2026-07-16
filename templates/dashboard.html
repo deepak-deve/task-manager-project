@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+    <div class="navbar">
+
+        <div class="nav-left">
+    
+            <h2>📋 Task Manager</h2>
+    
+        </div>
+    
+        <div class="nav-right">
+    
+            <span>
+    
+                Welcome, {{ session["user_name"] }}
+    
+            </span>
+    
+            <a href="/logout">
+    
+                <button>
+    
+                    Logout
+    
+                </button>
+    
+            </a>
+    
+        </div>
+    
+    </div>
+
+    <div class="page">
+
+        <h1>
+
+            Welcome, {{ name }} 👋
+
+        </h1>
+
+        <p>
+
+            Manage your daily tasks efficiently.
+            
+            </p>
+
+        <div class="dashboard-cards">
+
+            <div class="dashboard-card total-card">
+        
+                <h2>Total Tasks</h2>
+        
+                <h1>{{ total }}</h1>
+        
+            </div>
+        
+            <div class="dashboard-card pending-card">
+        
+                <h2>Pending</h2>
+        
+                <h1>{{ pending }}</h1>
+        
+            </div>
+        
+            <div class="dashboard-card completed-card">
+        
+                <h2>Completed</h2>
+        
+                <h1>{{ completed }}</h1>
+        
+            </div>
+        
+    
+        </div>
+
+        <br>
+
+        <a href="/tasks">
+
+            <button>
+
+                Go To Task Manager
+
+            </button>
+
+        </a>
+
+
+    </div>
+
+</body>
+
+</html>
